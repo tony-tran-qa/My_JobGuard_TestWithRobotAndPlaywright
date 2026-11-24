@@ -1,0 +1,10 @@
+{
+  "app": "jobguard", "version": 1, "exportedAt": "2026-11-24T00:00:00.000Z",
+  "blacklist": [{"name": "Backup Scam Inc", "reason": "From backup"}],
+  "records": [
+    {"id": 2001, "ts": 1795100000000, "company": "Backup Record Co", "role": "QA", "riskLevel": "LOW", "recommendation": "APPLY",
+     "verdict": "x", "redFlags": [], "greenFlags": [], "verificationSteps": [], "companyType": "Software / SaaS", "ownership": "Private"}
+  ],
+  "favorites": [],
+  "agencies": [{"name": "Backup Staffing", "url": "", "type": "Staffing / Recruiter", "note": ""}]
+}

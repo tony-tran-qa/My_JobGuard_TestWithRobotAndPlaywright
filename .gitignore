@@ -1,0 +1,12 @@
+results/
+output/
+log.html
+report.html
+output.xml
+playwright-log.txt
+browser/
+node_modules/
+__pycache__/
+*.pyc
+.idea/
+.vscode/

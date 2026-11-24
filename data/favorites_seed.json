@@ -1,0 +1,5 @@
+[
+  {"id": 1001, "ts": 1795000000000, "favoritedAt": 1795000300000, "company": "Acme Software", "role": "QA Engineer",
+   "riskLevel": "LOW", "recommendation": "APPLY", "verdict": "Established product company.", "redFlags": [], "greenFlags": [],
+   "verificationSteps": [], "companyType": "Software / SaaS", "ownership": "Private"}
+]

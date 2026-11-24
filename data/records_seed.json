@@ -1,0 +1,14 @@
+[
+  {"id": 1001, "ts": 1795000000000, "firstVetted": 1795000000000, "company": "Acme Software", "role": "QA Engineer",
+   "riskLevel": "LOW", "recommendation": "APPLY", "verdict": "Established product company.", "redFlags": [], "greenFlags": ["Real product"],
+   "verificationSteps": [], "companyType": "Software / SaaS", "ownership": "Private", "headcount": "200-500", "annualRevenue": "$50M-$100M",
+   "founded": "2010", "headquarters": "Waterloo, ON", "confidenceNote": "Test data", "fromCache": false},
+  {"id": 1002, "ts": 1795000100000, "firstVetted": 1795000100000, "company": "Allegis Group", "role": "SDET",
+   "riskLevel": "LOW", "recommendation": "APPLY", "verdict": "Large staffing firm.", "redFlags": [], "greenFlags": [],
+   "verificationSteps": [], "companyType": "Staffing Agency / Workforce Solutions", "ownership": "Private", "headcount": "10000+", "annualRevenue": "$10B+",
+   "founded": "1983", "headquarters": "Hanover, MD", "confidenceNote": "Test data", "fromCache": false},
+  {"id": 1003, "ts": 1795000200000, "firstVetted": 1795000200000, "company": "Globex Consulting", "role": "Test Lead",
+   "riskLevel": "MEDIUM", "recommendation": "CAUTION", "verdict": "IT consultancy, unverified.", "redFlags": ["Unverified"], "greenFlags": [],
+   "verificationSteps": [], "companyType": "Consulting", "ownership": "Private", "headcount": "50-200", "annualRevenue": "Unknown",
+   "founded": "Unknown", "headquarters": "Unknown", "confidenceNote": "Test data", "fromCache": false}
+]
