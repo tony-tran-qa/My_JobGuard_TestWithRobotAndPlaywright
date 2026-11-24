@@ -1,5 +1,7 @@
 # JobGuard Web UI Tests (Robot Framework + Playwright Browser library)
 
+[![Robot UI tests](https://github.com/tony-tran-qa/My_JobGuard_TestWithRobotAndPlaywright/actions/workflows/robot.yml/badge.svg)](https://github.com/tony-tran-qa/My_JobGuard_TestWithRobotAndPlaywright/actions/workflows/robot.yml)
+
 UI-layer tests for the JobGuard React web app (`006_My_JobGuard_ReactApp`), written with
 Robot Framework and the Browser library (Playwright).
 
@@ -70,6 +72,16 @@ resources/   shared keywords (common.resource)
 data/        seed and import files
 results/     output (not committed)
 ```
+
+## CI
+
+`.github/workflows/robot.yml` runs the whole suite on every push to `main`, on pull requests, and on demand (Actions tab > Robot UI tests > Run workflow).
+
+What it does: checks out this repo and the latest `main` of `My_JobGuard_ReactApp`, installs both, starts the app on `127.0.0.1:5173`, and runs `robot --outputdir results tests` headless on Ubuntu. `log.html`, `report.html`, `output.xml` and the downloaded export files are attached to each run as the `robot-results` artifact (Actions run page > Artifacts), kept for 90 days.
+
+Notes:
+- The tests always run against the latest web app `main`. A change in the web app repo does not trigger this workflow by itself. Use Run workflow (or push here) to rerun.
+- The suite needs no API key and no network beyond installing packages: the app is seeded through localStorage.
 
 ## Git operations
 

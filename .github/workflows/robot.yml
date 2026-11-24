@@ -1,0 +1,64 @@
+name: Robot UI tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out the tests
+        uses: actions/checkout@v4
+
+      - name: Check out the web app under test
+        uses: actions/checkout@v4
+        with:
+          repository: tony-tran-qa/My_JobGuard_ReactApp
+          path: app
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install the web app
+        working-directory: app
+        run: npm ci
+
+      - name: Install Robot Framework and the Browser library
+        run: |
+          pip install -r requirements.txt
+          rfbrowser init chromium
+          sudo npx -y playwright install-deps chromium
+
+      - name: Start the web app
+        working-directory: app
+        run: |
+          nohup npm run dev -- --host 127.0.0.1 --port 5173 --strictPort > ../vite.log 2>&1 &
+          curl --silent --fail --retry 30 --retry-connrefused --retry-delay 1 http://127.0.0.1:5173/ > /dev/null
+
+      - name: Run the tests
+        run: robot --outputdir results --variable BASE_URL:http://127.0.0.1:5173/ tests
+
+      - name: Upload Robot reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-results
+          path: |
+            results/
+            vite.log
+          if-no-files-found: ignore
