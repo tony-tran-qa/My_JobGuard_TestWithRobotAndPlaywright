@@ -34,3 +34,15 @@ Blacklisted Company Is Blocked Without Calling The API
     Fill Text    input[placeholder^="Company name"]    TechHire Global
     Click    button:has-text("Run Vetting Check")
     Get Text    body    contains    BLACKLISTED COMPANY
+
+Vet Summary Shows The Company And Its Website
+    [Documentation]    The AI call is mocked inside the page, so no API key or network is needed.
+    Evaluate JavaScript    ${None}    () => localStorage.setItem('jg_api_key', 'sk-ant-test')
+    Reload
+    Wait For Elements State    button.tab >> nth=0    visible
+    Evaluate JavaScript    ${None}    () => { const ai = {riskLevel: 'LOW', recommendation: 'APPLY', verdict: 'Well known.', redFlags: [], greenFlags: ['g'], verificationSteps: ['s'], companyType: 'Software', orgType: 'Other', ownership: 'Public', headcount: '1000+', annualRevenue: '$1B+', founded: '2000', headquarters: 'Toronto, Canada', website: 'example-co.com', confidenceNote: 'ok'}; window.fetch = async () => new Response(JSON.stringify({content: [{type: 'text', text: JSON.stringify(ai)}]}), {status: 200}); }
+    Fill Text    input[placeholder^="Company name"]    Example Co
+    Click    button:has-text("Run Vetting Check")
+    Get Text    [data-testid="vetted-site"]    contains    Example Co
+    Get Text    [data-testid="vetted-site"]    contains    example-co.com
+    Get Text    [data-testid="vetted-site"]    contains    AI suggested

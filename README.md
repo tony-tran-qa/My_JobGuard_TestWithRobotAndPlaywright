@@ -9,7 +9,7 @@ Robot Framework and the Browser library (Playwright).
 
 | Suite | Covers |
 |---|---|
-| `01_smoke.robot` | app loads, six tabs, no LinkedIn branding in the header, Vet button state, blacklisted company blocked without an API call |
+| `01_smoke.robot` | app loads, six tabs, no LinkedIn branding in the header, Vet button state, blacklisted company blocked without an API call, vet summary shows the company and its website (AI call mocked in the page) |
 | `02_blacklist.robot` | defaults, warning banner, add, remove, persistence across reload, export file, import merge and dedupe, invalid import |
 | `03_agencies.robot` | add, change type, remove, duplicate handling, export, import, Scan Records |
 | `04_records_favorites.robot` | seeded Records and Favorites, search, firm-type tags and filters, export, import without duplicates |
